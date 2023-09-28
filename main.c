@@ -6,7 +6,7 @@
  * factorise - find the list number to find a multiple
  * @num: number to check
  */
-void factorise(unsigned int long long num, unsigned int long long div)
+void factorise(long long num, long long div)
 {
 	while ((num % div) != 0)
 	{
@@ -24,7 +24,7 @@ int main(int ac, char **av)
 {
 	FILE *ptr;
 	char buff[255];
-	unsigned long long int num, div;
+	long long num, div;
 
 	if (ac != 2)
 	{
@@ -42,9 +42,10 @@ int main(int ac, char **av)
 	while (fgets(buff, sizeof(buff), ptr))
 	{
 		div = 2;
-		num = strtoull(buff, NULL, 10);
+		num = atoll(buff);
 		factorise(num, div);
 	}
+	fclose(ptr);
 
 	return (0);
 }
