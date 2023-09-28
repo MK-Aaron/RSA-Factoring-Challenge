@@ -8,11 +8,17 @@
  */
 void factorise(long long num, long long div)
 {
-	while ((num % div) != 0)
+	long long flag = 1;
+
+	while (flag)
 	{
+		if ((num % div) == 0)
+		{
+			printf("%llu=%llu*%llu\n", num, (num/div), div);
+			flag = 0;
+		}
 		++div;
 	}
-	printf("%llu=%llu*%llu\n", num, (num/div), div);
 }
 /**
  * main - open a file and take the contents
